@@ -26,7 +26,7 @@ def send_request(email_address): #send http request with email to register a new
     
     response = requests.post(url,json = request_body, headers=headers)
     if response.status_code == 200:
-        st.success(f"Request sent successfully, Response: {response.json()}")
+        st.success(f"Request sent successfully")
         st.write("Congratulations!\nPlease remember to check your spam folder for communications from The Evening Hedgehog")
     else:
         st.error(f"Failed to send request. Status code: {response.status_code}")
