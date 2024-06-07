@@ -40,8 +40,10 @@ email_address = st.text_input("Enter email address")
 
 submit_button = st.button("Submit email address")
 
-st.image("hedge_img.png")
+
 
 if submit_button:
     send_request(email_address)
     
+    
+st.image("hedge_img.png")    
