@@ -5,10 +5,6 @@ import streamlit as st
 import requests
 import re
 
-#THIS_DIR =Path(__file__).parent
-#CSS_FILE + THIS_DIR / "style" / "style.css"
-#ASSETS + THIS_DIR / "assets"
-
 def send_request(email_address): #send http request with email to register a new account
     email_pattern = r"^\S+[@][a-z]+[.][a-z]{3}$"
     
@@ -30,16 +26,14 @@ def send_request(email_address): #send http request with email to register a new
     else:
         st.error(f"Failed to send request. Status code: {response.status_code}")
 
-#with open("style/style.css") as file:
-    #st.markdown(f'<style>{file.read()}</style>', unsafe_allow_html=True)
+with open("style/style.css") as file:
+    st.markdown(f'<style>{file.read()}</style>', unsafe_allow_html=True)
 
 st.title("Subscribe to The Evening Hedghog")
 
 email_address = st.text_input("Enter email address")
 
 submit_button = st.button("Submit email address")
-
-
 
 if submit_button:
     send_request(email_address)
