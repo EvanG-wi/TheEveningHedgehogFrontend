@@ -1,8 +1,11 @@
 #Send Request
 
 import re
+import requests
+import json
+import streamlit as st
 
-def send_request(email_address): #send http request with email to register a new account
+def send_request(email_address, critter): #send http request with email to register a new account
     email_pattern = r"^\S+[@][a-z]+[.][a-z]{3}$"
     
     if not re.match(email_pattern,email_address):
@@ -13,7 +16,7 @@ def send_request(email_address): #send http request with email to register a new
     request_body = {
                      "task":"add_account",
                      "email_address":email_address,
-                     "critter":"hedgehog"
+                     "critter":critter
                    }
     headers = {'Content-type': 'application/json'}
     
