@@ -22,6 +22,6 @@ def send_request(email_address, critter): #send http request with email to regis
     
     response = requests.post(url,json = request_body, headers=headers)
     if response.status_code == 200:
-        st.success(f"Request sent successfully \nCongratulations!\nPlease remember to check your spam folder for communications from The Evening Hedgehog")
+        st.success(f"Request sent successfully. \nCongratulations!\nPlease remember to check your spam folder for communications from The Daily Goose")
     else:
         st.error(f"Failed to send request. Status code: {response.status_code}")
