@@ -4,8 +4,8 @@ import streamlit as st
 from send_request import send_request
 from streamlit_option_menu import option_menu
 
-with open("style/style.css") as file:
-    st.markdown(f'<style>{file.read()}</style>', unsafe_allow_html=True)
+#with open("style/style.css") as file:
+    #st.markdown(f'<style>{file.read()}</style>', unsafe_allow_html=True)
 
 critter_select = option_menu(
                              menu_title=None,
