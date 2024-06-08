@@ -1,42 +1,32 @@
 #streamlit web app daily goose
 
-import json
 import streamlit as st
-import requests
-import re
-
-def send_request(email_address): #send http request with email to register a new account
-    email_pattern = r"^\S+[@][a-z]+[.][a-z]{3}$"
-    
-    if not re.match(email_pattern,email_address):
-        st.error("invalid email")
-        return "invalid email"
-    
-    url = "https://us-central1-long-leaf-424918-h9.cloudfunctions.net/dailyGooseTestBuild"
-    request_body = {
-                     "task":"add_account",
-                     "email_address":email_address,
-                     "critter":"hedgehog"
-                   }
-    headers = {'Content-type': 'application/json'}
-    
-    response = requests.post(url,json = request_body, headers=headers)
-    if response.status_code == 200:
-        st.success(f"Request sent successfully \nCongratulations!\nPlease remember to check your spam folder for communications from The Evening Hedgehog")
-    else:
-        st.error(f"Failed to send request. Status code: {response.status_code}")
+from send_request import send_request
+from streamlit_option_menu import option_menu
 
 with open("style/style.css") as file:
     st.markdown(f'<style>{file.read()}</style>', unsafe_allow_html=True)
 
-st.title("Subscribe to The Evening Hedghog")
+critter_select = option_menu(
+                             menu_title=None,
+                             options=["The Daily Goose","The Evening Hedgehog"],
+                             orientation="horizontal"
+                            )
+
+
+st.title("Subscribe to "+critter_select)
 
 email_address = st.text_input("Enter email address")
 
 submit_button = st.button("Submit email address")
 
 if submit_button:
-    send_request(email_address)
-    
-    
-st.image("hedge_img.png")    
+    if critter_select=="The Daily Goose":
+        send_request(email_address,"goose")
+    elif critter_select=="The Evening Hedgehog":
+        send_request(email_address,"hedgehog")
+
+if critter_select=="The Daily Goose":
+    st.image("ottomanEmpireCourtGoose.png")
+elif critter_select=="The Evening Hedgehog":
+    st.image("hedge_img.png")    
