@@ -15,9 +15,12 @@ critter_select = option_menu(
 
 
 st.title("Subscribe to "+critter_select)
-if 'email_address' not in st.session_state:
-    st.session_state.email_address = ""
+
 email_address = st.text_input("Enter email address",key='email_address')
+
+def clear_text():
+    st.session_state['email_address'] = ""
+
 
 submit_button = st.button("Submit email address")
 
@@ -26,7 +29,8 @@ if submit_button:#submit email address
         send_request(email_address,"goose")
     elif critter_select=="The Evening Hedgehog":
         send_request(email_address,"hedgehog")
-    st.session_state['email_address'] = ""
+    #st.session_state['email_address'] = ""
+    clear_text()
 
 if critter_select=="The Daily Goose":
     st.image("ottomanEmpireCourtGoose.png")
