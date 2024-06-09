@@ -25,7 +25,7 @@ if submit_button:#submit email address
         send_request(email_address,"goose")
     elif critter_select=="The Evening Hedgehog":
         send_request(email_address,"hedgehog")
-    critter_select =""
+    email_address = ""
 
 if critter_select=="The Daily Goose":
     st.image("ottomanEmpireCourtGoose.png")
