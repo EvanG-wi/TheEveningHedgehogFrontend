@@ -18,19 +18,16 @@ st.title("Subscribe to "+critter_select)
 
 email_address = st.text_input("Enter email address",key='email')
 
-def clear_text():
-    st.session_state['email'] = ""
-
-
-submit_button = st.button("Submit email address")
-
-if submit_button:#submit email address
+def click_button():
     if critter_select=="The Daily Goose":
         send_request(email_address,"goose")
     elif critter_select=="The Evening Hedgehog":
-        send_request(email_address,"hedgehog")
-    #st.session_state['email_address'] = ""
-    clear_text()
+        send_request(email_address,"hedgehog")  
+    st.session_state['email'] = ""
+
+
+submit_button = st.button("Submit email address", on_click=click_button)
+
 
 if critter_select=="The Daily Goose":
     st.image("ottomanEmpireCourtGoose.png")
