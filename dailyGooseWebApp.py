@@ -16,10 +16,10 @@ critter_select = option_menu(
 
 st.title("Subscribe to "+critter_select)
 
-email_address = st.text_input("Enter email address",key='email_address')
+email_address = st.text_input("Enter email address",key='email')
 
 def clear_text():
-    st.session_state['email_address'] = ""
+    st.session_state['email'] = ""
 
 
 submit_button = st.button("Submit email address")
