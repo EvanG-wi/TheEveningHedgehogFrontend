@@ -20,11 +20,12 @@ email_address = st.text_input("Enter email address")
 
 submit_button = st.button("Submit email address")
 
-if submit_button:
+if submit_button:#submit email address
     if critter_select=="The Daily Goose":
         send_request(email_address,"goose")
     elif critter_select=="The Evening Hedgehog":
         send_request(email_address,"hedgehog")
+    critter_select =""
 
 if critter_select=="The Daily Goose":
     st.image("ottomanEmpireCourtGoose.png")
