@@ -4,11 +4,11 @@ import streamlit as st
 from send_request import send_request
 from streamlit_option_menu import option_menu
 
-st.set_page_config(page_title="The Daily Goose",page_icon=':duck:')#browser tab icon
+st.set_page_config(page_title="The Daily Goose",page_icon=':duck:')#browser tab
 
 with open("style/style.css") as file:#remove streamlit default header
     st.markdown(f'<style>{file.read()}</style>', unsafe_allow_html=True)
-st.markdown('<style>div.block-container{padding-top:1rem;}</style>', unsafe_allow_html=True)
+#st.markdown('<style>div.block-container{padding-top:1rem;}</style>', unsafe_allow_html=True)
     
 def click_button():
     if critter_select=="The Daily Goose":
