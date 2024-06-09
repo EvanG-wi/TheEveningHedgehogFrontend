@@ -4,7 +4,7 @@ import streamlit as st
 from send_request import send_request
 from streamlit_option_menu import option_menu
 
-st.set_page_config(page_icon=':duck:')#browser tab icon
+st.set_page_config(page_title="The Daily Goose",page_icon=':duck:')#browser tab icon
 
 with open("style/style.css") as file:#remove streamlit default header
     st.markdown(f'<style>{file.read()}</style>', unsafe_allow_html=True)
